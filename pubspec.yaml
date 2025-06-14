@@ -76,10 +76,6 @@ dependencies:
   pdf: ^3.11.3                   # create PDFs
   printing: ^5.12.0              # share/print
 
-  # --- Payments (Indonesia) ---
-  midtrans_sdk: ^1.0.0           # Midtrans Snap (QRIS etc.)
-  xendit_flutter: ^0.0.1         # alternative gateway
-
   # --- Maps / Location (future delivery module) ---
   google_maps_flutter: ^2.12.2
 

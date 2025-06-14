@@ -13,9 +13,13 @@ import '../features/sales/page/sales_page.dart';
 import '../features/auth/pages/login_page.dart';
 import '../features/analytics/page/analytics_page.dart';
 import '../features/products/page/products_page.dart';
+import '../features/products/page/add/add_product_page.dart';
 import '../features/orders/page/orders_page.dart';
+import '../features/orders/page/add/add_order_page.dart';
 import '../features/discounts/page/discounts_page.dart';
+import '../features/discounts/page/add/add_discount_page.dart';
 import '../features/customers/page/customers_page.dart';
+import '../features/customers/page/add/add_customer_page.dart';
 import '../features/settings/page/settings_page.dart';
 import '../features/account/page/account_page.dart';
 import '../features/store/page/store_page.dart';
@@ -30,14 +34,22 @@ String _getPageTitle(String location) {
       return 'Dashboard';
     case AppRoutes.products:
       return 'Products';
+    case AppRoutes.products + '/add':
+      return 'Add Product';
     case AppRoutes.inventory:
       return 'Inventory';
     case AppRoutes.orders:
       return 'Orders';
+    case AppRoutes.orders + '/add':
+      return 'Add Order';
     case AppRoutes.discounts:
       return 'Discounts';
+    case AppRoutes.discounts + '/add':
+      return 'Add Discount';
     case AppRoutes.customers:
       return 'Customers';
+    case AppRoutes.customers + '/add':
+      return 'Add Customer';
     case AppRoutes.analytics:
       return 'Analytics';
     case AppRoutes.settings:
@@ -73,12 +85,11 @@ final GoRouter router = GoRouter(
       path: AppRoutes.home,
       builder: (context, state) => const HomePage(),
     ),
-
     ShellRoute(
       builder: (context, state, child) {
         // Get the current page title based on the route
         final currentTitle = _getPageTitle(state.uri.toString());
-        
+
         return Scaffold(
           appBar: HeaderNavigation(
             title: currentTitle,
@@ -101,6 +112,10 @@ final GoRouter router = GoRouter(
           builder: (context, state) => const ProductsPage(),
         ),
         GoRoute(
+          path: AppRoutes.addproduct,
+          builder: (context, state) => AddProductPage(),
+        ),
+        GoRoute(
           path: AppRoutes.inventory,
           builder: (context, state) => const InventoryPage(),
         ),
@@ -109,12 +124,24 @@ final GoRouter router = GoRouter(
           builder: (context, state) => const OrdersPage(),
         ),
         GoRoute(
+          path: AppRoutes.addorder,
+          builder: (context, state) => AddOrderPage(),
+        ),
+        GoRoute(
           path: AppRoutes.discounts,
           builder: (context, state) => const DiscountsPage(),
         ),
         GoRoute(
+          path: AppRoutes.addDiscount,
+          builder: (context, state) => AddDiscountPage(),
+        ),
+        GoRoute(
           path: AppRoutes.customers,
           builder: (context, state) => const CustomersPage(),
+        ),
+        GoRoute(
+          path: AppRoutes.addcustomer,
+          builder: (context, state) => AddCustomerPage(),
         ),
         GoRoute(
           path: AppRoutes.analytics,

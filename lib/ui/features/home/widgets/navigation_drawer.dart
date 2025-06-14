@@ -29,6 +29,14 @@ class NavigationDrawer extends StatelessWidget {
               },
             ),
             ListTile(
+              leading: Icon(Icons.add_box_outlined),
+              title: Text('Add Product'),
+              onTap: () {
+                context.go(AppRoutes.addproduct);
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
               leading: const Icon(Icons.inventory),
               title: const Text("Inventory"),
               onTap: () {
@@ -45,6 +53,14 @@ class NavigationDrawer extends StatelessWidget {
               },
             ),
             ListTile(
+              leading: const Icon(Icons.add_box_outlined),
+              title: const Text("Add Order"),
+              onTap: () {
+                context.go(AppRoutes.addorder);
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
               leading: const Icon(Icons.percent_outlined),
               title: const Text("Discounts"),
               onTap: () {
@@ -53,10 +69,26 @@ class NavigationDrawer extends StatelessWidget {
               },
             ),
             ListTile(
+              leading: const Icon(Icons.add_box_outlined),
+              title: const Text("Add Discount"),
+              onTap: () {
+                context.go(AppRoutes.addDiscount);
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
               leading: const Icon(Icons.person_sharp),
               title: const Text("Customers"),
               onTap: () {
                 context.go(AppRoutes.customers);
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.add_box_outlined),
+              title: const Text("Add Customer"),
+              onTap: () {
+                context.go(AppRoutes.addcustomer);
                 Navigator.pop(context);
               },
             ),

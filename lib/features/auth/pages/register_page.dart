@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -10,12 +11,14 @@ class RegisterPage extends StatefulWidget {
 
 class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController passwordController = TextEditingController();
-  final TextEditingController confirmPasswordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
   bool agreeToTerms = false;
 
   bool get hasMinLength => passwordController.text.length >= 8;
   bool get hasNumber => RegExp(r'[0-9]').hasMatch(passwordController.text);
-  bool get hasUpperLower => RegExp(r'(?=.*[a-z])(?=.*[A-Z])').hasMatch(passwordController.text);
+  bool get hasUpperLower =>
+      RegExp(r'(?=.*[a-z])(?=.*[A-Z])').hasMatch(passwordController.text);
 
   bool get isPasswordValid => hasMinLength && hasNumber && hasUpperLower;
   bool get isFormValid => isPasswordValid && agreeToTerms;
@@ -41,6 +44,13 @@ class _RegisterPageState extends State<RegisterPage> {
         child: SafeArea(
           child: ListView(
             children: [
+              const SizedBox(height: 34),
+              SvgPicture.asset(
+                'assets/icon.svg',
+                semanticsLabel: 'logo',
+                height: 24,
+                width: 24, // Optional: set a height for better visibility
+              ),
               const SizedBox(height: 24),
               const Text(
                 'Sign up',
@@ -80,14 +90,16 @@ class _RegisterPageState extends State<RegisterPage> {
               const SizedBox(height: 16),
               _buildRequirement(hasMinLength, 'At least 8 characters'),
               _buildRequirement(hasNumber, 'At least 1 number'),
-              _buildRequirement(hasUpperLower, 'Both upper and lower case letters'),
+              _buildRequirement(
+                  hasUpperLower, 'Both upper and lower case letters'),
               const SizedBox(height: 16),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Checkbox(
                     value: agreeToTerms,
-                    onChanged: (value) => setState(() => agreeToTerms = value ?? false),
+                    onChanged: (value) =>
+                        setState(() => agreeToTerms = value ?? false),
                   ),
                   const Expanded(
                     child: Text(
@@ -100,18 +112,23 @@ class _RegisterPageState extends State<RegisterPage> {
               const SizedBox(height: 12),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: isFormValid ? const Color(0xFFB6E76C) : Colors.grey.shade400,
+                  backgroundColor: isFormValid
+                      ? const Color(0xFFB6E76C)
+                      : Colors.grey.shade400,
                   padding: const EdgeInsets.symmetric(vertical: 16),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
                   ),
                 ),
-                onPressed: isFormValid ? () {
-                  // Submit action
-                } : null,
+                onPressed: isFormValid
+                    ? () {
+                        // Submit action
+                      }
+                    : null,
                 child: const Text(
                   'Sign Up',
-                  style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                      color: Colors.black, fontWeight: FontWeight.bold),
                 ),
               ),
               const SizedBox(height: 24),

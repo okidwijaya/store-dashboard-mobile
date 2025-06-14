@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-
+import 'package:flutter_svg/flutter_svg.dart';
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
 
@@ -19,6 +19,13 @@ class LoginPage extends StatelessWidget {
         child: SafeArea(
           child: ListView(
             children: [
+              const SizedBox(height: 34),
+              SvgPicture.asset(
+                'assets/icon.svg',
+                semanticsLabel: 'logo',
+                height: 24,
+                width: 24, // Optional: set a height for better visibility
+              ),
               const SizedBox(height: 24),
               const Text(
                 'Create an account',
@@ -63,7 +70,8 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
                 onPressed: () => context.go('/dashboard'),
-                child: const Text('Log In', style: TextStyle(color: Colors.white)),
+                child:
+                    const Text('Log In', style: TextStyle(color: Colors.white)),
               ),
               const SizedBox(height: 16),
               const Row(children: [
