@@ -24,7 +24,7 @@ class LoginPage extends StatelessWidget {
                 'assets/icon.svg',
                 semanticsLabel: 'logo',
                 height: 24,
-                width: 24, // Optional: set a height for better visibility
+                width: 24,
               ),
               const SizedBox(height: 24),
               const Text(
